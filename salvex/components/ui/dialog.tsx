@@ -20,7 +20,7 @@ const Dialog = React.forwardRef<
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ duration: 0.4, ease: "easeOut" }}
             className="fixed inset-0 bg-background/90 backdrop-blur-md"
             onClick={() => onOpenChange?.(false)}
           />
@@ -30,7 +30,7 @@ const Dialog = React.forwardRef<
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 0.6, scale: 1 }}
             exit={{ opacity: 0, scale: 0.8 }}
-            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
             className="pointer-events-none absolute inset-0 overflow-hidden"
           >
             <div className="absolute left-1/4 top-1/4 h-[30rem] w-[30rem] rounded-full bg-[radial-gradient(circle_at_center,rgba(214,169,157,0.2),rgba(214,169,157,0)_70%)] blur-3xl" />
@@ -63,7 +63,7 @@ const Dialog = React.forwardRef<
             }}
             transition={{
               duration: 0.5,
-              ease: [0.16, 1, 0.3, 1],
+              ease: "easeOut",
               filter: { duration: 0.3 }
             }}
             className={cn(
