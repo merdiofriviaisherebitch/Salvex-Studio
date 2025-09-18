@@ -614,40 +614,6 @@ export default function Page() {
           ))}
         </div>
 
-        {/* Additional Social Proof */}
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-          viewport={{ once: true }}
-          className="text-center pt-8"
-        >
-          <div className="relative inline-flex items-center gap-6 rounded-full border border-white/10 bg-white/5 px-8 py-4 backdrop-blur-xl">
-            {/* Subtle highlight for social proof */}
-            <div className="absolute inset-0 opacity-100 z-10 pointer-events-none">
-              <div className="absolute inset-0 rounded-full bg-[radial-gradient(circle_at_center,rgba(94,106,109,0.04),rgba(94,106,109,0)_75%)]" />
-            </div>
-            <div className="relative z-20">
-              <div className="flex items-center gap-2">
-                <div className="flex -space-x-2">
-                  <div className="h-8 w-8 rounded-full bg-gradient-to-br from-accent/30 to-primary/30 border-2 border-background"></div>
-                  <div className="h-8 w-8 rounded-full bg-gradient-to-br from-primary/30 to-accent/30 border-2 border-background"></div>
-                  <div className="h-8 w-8 rounded-full bg-gradient-to-br from-accent/20 to-primary/40 border-2 border-background"></div>
-                </div>
-                <span className="text-sm font-medium text-foreground">50+ Happy Clients</span>
-              </div>
-              <div className="h-4 w-px bg-muted/60"></div>
-              <div className="flex items-center gap-1">
-                {[...Array(5)].map((_, i) => (
-                  <svg key={i} className="h-4 w-4 text-[#5e6a6d]" fill="currentColor" viewBox="0 0 20 20">
-                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                  </svg>
-                ))}
-                <span className="ml-2 text-sm font-medium text-foreground">5.0 Average</span>
-              </div>
-            </div>
-          </div>
-        </motion.div>
       </section>
 
       {/* Final CTA Section */}
@@ -682,7 +648,9 @@ export default function Page() {
                 Start Your Project
               </span>
             </Button>
-            <a href="mailto:hi@salvex.app" className="inline-flex items-center justify-center rounded-full border border-white/10 bg-white/10 px-6 py-3 text-sm font-semibold text-[#5e6a6d] shadow-[0_12px_30px_-18px_rgba(94,106,109,0.45)] transition-colors hover:bg-white/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/50 focus-visible:ring-offset-0">\n              hi@salvex.apppp\n            </a>
+            <a href="mailto:Mehrdad@salvex.app" className="inline-flex items-center justify-center rounded-full border border-white/10 bg-white/10 px-6 py-3 text-sm font-semibold text-[#5e6a6d] shadow-[0_12px_30px_-18px_rgba(94,106,109,0.45)] transition-colors hover:bg-white/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/50 focus-visible:ring-offset-0">
+              Mehrdad@salvex.app
+            </a>
           </div>
 
           {/* Compact Metrics */}

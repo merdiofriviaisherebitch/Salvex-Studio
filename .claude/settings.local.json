@@ -1,7 +1,14 @@
 {
   "permissions": {
     "allow": [
-      "Bash(git commit:*)"
+      "Bash(git commit:*)",
+      "Bash(claude mcp add-json convex '{\"\"type\"\":\"\"stdio\"\",\"\"command\"\":\"\"npx\"\",\"\"args\"\":[\"\"convex\"\",\"\"mcp\"\",\"\"start\"\"]}')",
+      "Bash(claude mcp get:*)",
+      "Bash(echo $CONVEX_DEPLOYMENT)",
+      "Bash(npx convex deploy)",
+      "Bash(npx convex deploy:*)",
+      "Bash(git add:*)",
+      "Bash(git push:*)"
     ],
     "deny": [],
     "ask": []

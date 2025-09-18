@@ -25,6 +25,8 @@ const indicatorTransition = {
 export function SiteNavigation() {
   const [activeSection, setActiveSection] = useState<SectionId>("hero");
   const [isCondensed, setIsCondensed] = useState(false);
+  const [isMobileSidebar, setIsMobileSidebar] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 
   const sectionIds = useMemo(() => NAV_ITEMS.map((item) => item.id), []);
 
@@ -61,6 +63,20 @@ export function SiteNavigation() {
     };
   }, [sectionIds]);
 
+  // Handle mobile detection
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    handleResize();
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
   useEffect(() => {
     let ticking = false;
 
@@ -77,6 +93,22 @@ export function SiteNavigation() {
             }
             return prev;
           });
+
+          // Handle mobile sidebar
+          if (isMobile) {
+            setIsMobileSidebar((prev) => {
+              if (currentY > 200 && !prev) {
+                return true;
+              }
+              if (currentY < 100 && prev) {
+                return false;
+              }
+              return prev;
+            });
+          } else {
+            setIsMobileSidebar(false);
+          }
+
           ticking = false;
         });
         ticking = true;
@@ -89,7 +121,7 @@ export function SiteNavigation() {
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, []);
+  }, [isMobile]);
 
   const handleNavigate = (id: SectionId) => {
     const element = document.getElementById(id);
@@ -106,19 +138,28 @@ export function SiteNavigation() {
   return (
     <motion.nav
       initial={{ opacity: 0, y: -12 }}
-      animate={{ opacity: 1, y: 0 }}
+      animate={{
+        opacity: 1,
+        y: 0,
+        x: isMobileSidebar ? 0 : 0
+      }}
       transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
       className={cn(
-        "sticky z-50 flex justify-center transition-all duration-500 ease-out",
-        isCondensed ? "top-2" : "top-4"
+        "sticky z-50 transition-all duration-500 ease-out",
+        isMobileSidebar
+          ? "fixed top-4 left-4 flex flex-col"
+          : "flex justify-center",
+        !isMobileSidebar && (isCondensed ? "top-2" : "top-4")
       )}
     >
       <div
         className={cn(
-          "relative flex items-center justify-center bg-[linear-gradient(135deg,rgba(251,243,213,0.92),rgba(214,218,200,0.88))] backdrop-blur-2xl transition-all duration-500",
-          isCondensed
-            ? "w-auto rounded-2xl border border-white/35 px-4 py-2 shadow-[0_18px_32px_-28px_rgba(58,68,70,0.55)]"
-            : "w-full max-w-6xl rounded-3xl border border-[#d6c8ae]/70 px-6 py-4 shadow-[0_28px_70px_-36px_rgba(58,68,70,0.55)]"
+          "relative bg-[linear-gradient(135deg,rgba(251,243,213,0.92),rgba(214,218,200,0.88))] backdrop-blur-2xl transition-all duration-500",
+          isMobileSidebar
+            ? "flex flex-col items-start w-auto rounded-2xl border border-white/35 px-3 py-3 shadow-[0_18px_32px_-28px_rgba(58,68,70,0.55)]"
+            : isCondensed
+            ? "flex items-center justify-center w-auto rounded-2xl border border-white/35 px-4 py-2 shadow-[0_18px_32px_-28px_rgba(58,68,70,0.55)]"
+            : "flex items-center justify-center w-full max-w-6xl rounded-3xl border border-[#d6c8ae]/70 px-6 py-4 shadow-[0_28px_70px_-36px_rgba(58,68,70,0.55)]"
         )}
       >
         <div className="pointer-events-none absolute inset-0 rounded-[inherit]">
@@ -129,8 +170,11 @@ export function SiteNavigation() {
 
         <div
           className={cn(
-            "relative flex flex-wrap items-center justify-center transition-all duration-500",
-            isCondensed ? "gap-1.5" : "gap-2.5"
+            "relative transition-all duration-500",
+            isMobileSidebar
+              ? "flex flex-col items-start gap-2"
+              : "flex flex-wrap items-center justify-center",
+            !isMobileSidebar && (isCondensed ? "gap-1.5" : "gap-2.5")
           )}
         >
           {NAV_ITEMS.map((item) => {
@@ -141,17 +185,25 @@ export function SiteNavigation() {
                 type="button"
                 onClick={() => handleNavigate(item.id)}
                 className={cn(
-                  "relative overflow-hidden rounded-full font-semibold uppercase tracking-[0.28em] text-[#7a8689] transition-all duration-300",
-                  isCondensed
+                  "relative overflow-hidden font-semibold uppercase tracking-[0.28em] text-[#7a8689] transition-all duration-300",
+                  isMobileSidebar
+                    ? "w-full text-left rounded-lg px-3 py-2 text-[0.6rem]"
+                    : "rounded-full",
+                  !isMobileSidebar && (isCondensed
                     ? "px-3 py-1.5 text-[0.65rem] sm:text-xs"
-                    : "px-4 py-2 text-xs sm:text-sm"
+                    : "px-4 py-2 text-xs sm:text-sm")
                 )}
               >
                 {isActive && (
                   <motion.span
                     layoutId="nav-active-pill"
                     transition={indicatorTransition}
-                    className="absolute inset-0 z-0 rounded-full bg-gradient-to-r from-primary/70 via-accent/60 to-primary/70 shadow-[0_12px_30px_-18px_rgba(214,169,157,0.65)]"
+                    className={cn(
+                      "absolute z-0 shadow-[0_12px_30px_-18px_rgba(214,169,157,0.65)]",
+                      isMobileSidebar
+                        ? "inset-0 rounded-lg bg-gradient-to-r from-primary/70 via-accent/60 to-primary/70"
+                        : "inset-0 rounded-full bg-gradient-to-r from-primary/70 via-accent/60 to-primary/70"
+                    )}
                   />
                 )}
                 <span className={cn("relative z-10", isActive ? "text-background" : "text-[#7a8689]")}>
