@@ -25,12 +25,16 @@ const REQUIRED_FIELDS: Array<keyof InquiryPayload> = [
   "location",
 ];
 
-function createClient() {
+type AdminConvexClient = ConvexHttpClient & {
+  setAdminAuth(token: string, actingAsIdentity?: unknown): void;
+};
+
+function createClient(): AdminConvexClient {
   if (!CONVEX_URL) {
     throw new Error("NEXT_PUBLIC_CONVEX_URL is not configured");
   }
 
-  return new ConvexHttpClient(CONVEX_URL);
+  return new ConvexHttpClient(CONVEX_URL) as AdminConvexClient;
 }
 
 function sanitizeInput(value: unknown, maxLength: number) {
@@ -142,4 +146,6 @@ export async function GET(request: NextRequest) {
     );
   }
 }
+
+
 
