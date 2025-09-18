@@ -2,24 +2,14 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Badge } from "@/components/ui/badge";
+import Image from "next/image";
 import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
 import { ProjectInquiryModal } from "@/components/project-inquiry-modal";
 import { PrivacyConsentCard } from "@/components/privacy-consent-card";
 import { ArcTimeline } from "@/components/ui/arc-timeline";
 import { FlipWords } from "@/components/ui/flip-words";
 import GradientPattern from "@/components/ui/gradient-pattern";
 import { TrendingUp, Zap, Users } from "lucide-react";
-
 const features = [
   {
     title: "Strategy-First Design",
@@ -114,27 +104,6 @@ const testimonials = [
     rating: 5,
     metric: "150% user engagement"
   }
-];
-
-const stats = [
-  {
-    value: "300%",
-    suffix: "",
-    label: "Avg. conversion boost",
-    description: "Average increase in conversions across all client projects.",
-  },
-  {
-    value: "0.8s",
-    suffix: "",
-    label: "Load time",
-    description: "Average page load time across all delivered projects.",
-  },
-  {
-    value: "50+",
-    suffix: "",
-    label: "Happy clients",
-    description: "Successful projects delivered across various industries.",
-  },
 ];
 
 const arcTimelineData = [
@@ -470,10 +439,11 @@ export default function Page() {
               </div>
               {/* 16:9 Landscape Image Area */}
               <div className="relative aspect-video overflow-hidden bg-gradient-to-br from-accent/20 to-background/40">
-                <img
+                <Image
                   src={item.image}
                   alt={`${item.title} preview`}
-                  className={`h-full w-full object-cover transition-transform duration-700 group-hover:scale-105 ${
+                  fill
+                  className={`object-cover transition-transform duration-700 group-hover:scale-105 ${
                     item.image === '/1.png'
                       ? 'object-left'
                       : item.image === '/2.png' || item.image === '/5.png'
@@ -485,8 +455,9 @@ export default function Page() {
                       ? { objectPosition: '-45px center' }
                       : {}
                   }
+                  sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
+                  priority={index === 0}
                 />
-
                 {/* Hover Overlay */}
                 <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-background/20 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
 
@@ -740,86 +711,6 @@ export default function Page() {
     </div>
   );
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

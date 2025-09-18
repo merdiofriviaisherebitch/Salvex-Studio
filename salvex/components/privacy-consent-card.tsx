@@ -26,12 +26,6 @@ export function PrivacyConsentCard() {
     setIsVisible(false)
   }
 
-  const handleMoreOptions = () => {
-    // For now, just hide the card. You can implement a full privacy options modal later
-    setIsVisible(false)
-    localStorage.setItem('privacy-consent-seen', 'true')
-  }
-
   return (
     <AnimatePresence>
       {isVisible && (
