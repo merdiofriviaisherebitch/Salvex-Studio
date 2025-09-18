@@ -4,6 +4,7 @@ import "./globals.css";
 
 import { SiteNavigation } from "@/components/site-navigation";
 import { ConvexClientProvider } from "@/lib/convex-provider";
+import { Analytics } from "@vercel/analytics/next";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -99,6 +100,7 @@ export default function RootLayout({
             {children}
           </main>
         </div>
+        <Analytics />
         </ConvexClientProvider>
       </body>
     </html>
