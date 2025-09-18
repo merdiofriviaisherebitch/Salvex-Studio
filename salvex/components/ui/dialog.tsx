@@ -4,13 +4,13 @@ import * as React from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { cn } from "@/lib/utils"
 
-const Dialog = React.forwardRef<
-  HTMLDivElement,
-  React.HTMLAttributes<HTMLDivElement> & {
-    open?: boolean
-    onOpenChange?: (open: boolean) => void
-  }
->(({ className, open, onOpenChange, children, ...props }, ref) => {
+type DialogProps = Omit<React.ComponentPropsWithoutRef<typeof motion.div>, "children"> & {
+  children?: React.ReactNode
+  open?: boolean
+  onOpenChange?: (open: boolean) => void
+}
+
+const Dialog = React.forwardRef<HTMLDivElement, DialogProps>(({ className, open, onOpenChange, children, ...props }, ref) => {
   return (
     <AnimatePresence mode="wait">
       {open && (
