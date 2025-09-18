@@ -193,7 +193,7 @@ const heroVariants = {
     filter: "blur(0px)",
     transition: {
       duration: 1.0,
-      ease: [0.16, 1, 0.3, 1],
+      ease: "easeOut",
       delay: 0.6,
       filter: { duration: 0.6 }
     },
