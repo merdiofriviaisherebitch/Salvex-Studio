@@ -191,12 +191,6 @@ const heroVariants = {
     opacity: 1,
     y: 0,
     filter: "blur(0px)",
-    transition: {
-      duration: 1.0,
-      ease: "easeOut",
-      delay: 0.6,
-      filter: { duration: 0.6 }
-    },
   },
 };
 
@@ -247,6 +241,11 @@ export default function Page() {
             initial="hidden"
             animate="visible"
             variants={heroVariants}
+            transition={{
+              duration: 1.0,
+              ease: "easeOut",
+              delay: 0.6,
+            }}
             className="flex flex-col justify-center space-y-12 text-center"
           >
             <div className="flex flex-col gap-8">
