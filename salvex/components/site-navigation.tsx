@@ -17,7 +17,6 @@ const NAV_ITEMS = [
 type SectionId = (typeof NAV_ITEMS)[number]["id"];
 
 const indicatorTransition = {
-  type: "spring",
   stiffness: 420,
   damping: 40,
   mass: 0.5,
