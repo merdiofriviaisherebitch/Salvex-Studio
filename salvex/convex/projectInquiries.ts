@@ -1,4 +1,4 @@
-import { mutation, query } from "./_generated/server";
+import { internalMutation, internalQuery, mutation, query } from "./_generated/server";
 import { v } from "convex/values";
 
 export const createProjectInquiry = mutation({
@@ -30,7 +30,7 @@ export const createProjectInquiry = mutation({
   },
 });
 
-export const getProjectInquiries = query({
+export const getProjectInquiries = internalQuery({
   args: {},
   handler: async (ctx) => {
     return await ctx.db
@@ -47,7 +47,7 @@ export const getProjectInquiryById = query({
   },
 });
 
-export const updateProjectInquiryStatus = mutation({
+export const updateProjectInquiryStatus = internalMutation({
   args: {
     id: v.id("projectInquiries"),
     status: v.union(
@@ -62,3 +62,4 @@ export const updateProjectInquiryStatus = mutation({
     await ctx.db.patch(args.id, { status: args.status });
   },
 });
+

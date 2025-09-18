@@ -114,7 +114,7 @@ const arcTimelineData = [
         icon: <TrendingUp className="h-6 w-6" />,
         content: (
           <div className="space-y-2">
-            <div className="text-[#f5e9d7]xl font-bold text-foreground">300%</div>
+            <div className="text-4xl font-bold text-[#f5e9d7]">300%</div>
             <div className="text-sm font-semibold text-foreground">Avg. conversion boost</div>
             <div className="text-xs text-muted-foreground">Average increase in conversions across all client projects.</div>
           </div>
@@ -129,7 +129,7 @@ const arcTimelineData = [
         icon: <Zap className="h-6 w-6" />,
         content: (
           <div className="space-y-2">
-            <div className="text-[#f5e9d7]xl font-bold text-foreground">0.8s</div>
+            <div className="text-4xl font-bold text-[#f5e9d7]">0.8s</div>
             <div className="text-sm font-semibold text-foreground">Load time</div>
             <div className="text-xs text-muted-foreground">Average page load time across all delivered projects.</div>
           </div>
@@ -144,7 +144,7 @@ const arcTimelineData = [
         icon: <Users className="h-6 w-6" />,
         content: (
           <div className="space-y-2">
-            <div className="text-[#f5e9d7]xl font-bold text-foreground">50+</div>
+            <div className="text-4xl font-bold text-[#f5e9d7]">50+</div>
             <div className="text-sm font-semibold text-foreground">Happy clients</div>
             <div className="text-xs text-muted-foreground">Successful projects delivered across various industries.</div>
           </div>
@@ -366,7 +366,7 @@ export default function Page() {
               </span>
               <div className="h-2 w-2 rounded-full bg-accent shadow-sm" />
             </div>
-            <h3 className="text-[#f5e9d7]xl font-semibold leading-tight tracking-tight text-foreground md:text-4xl">
+            <h3 className="text-3xl font-semibold leading-tight tracking-tight text-foreground sm:text-4xl">
               Results That Speak for Themselves
             </h3>
             <p className="mx-auto max-w-2xl text-lg text-muted-foreground">
@@ -374,7 +374,7 @@ export default function Page() {
             </p>
           </div>
 
-          <div className="relative">
+          <div className="relative hidden md:block">
             <ArcTimeline
               data={arcTimelineData}
               className="mx-auto"
@@ -389,6 +389,31 @@ export default function Page() {
                 stepIndex: 0,
               }}
             />
+          </div>
+
+          <div className="grid gap-4 md:hidden">
+            {arcTimelineData.map((item, sectionIndex) => (
+              <div
+                key={'mobile-' + sectionIndex}
+                className="rounded-2xl border border-white/10 bg-white/10 p-4 shadow-[0_16px_40px_-30px_rgba(58,68,70,0.55)] backdrop-blur-xl"
+              >
+                <div className="mb-3 text-xs font-semibold uppercase tracking-[0.35em] text-[#7e8e92]">
+                  {item.time}
+                </div>
+                <div className="space-y-3">
+                  {item.steps.map((step, stepIndex) => (
+                    <div key={'mobile-' + sectionIndex + '-' + stepIndex} className="flex gap-3 rounded-xl bg-white/10 p-3">
+                      <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-accent/20 text-accent">
+                        {step.icon}
+                      </div>
+                      <div className="flex-1 text-sm text-foreground/90">
+                        {step.content}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ))}
           </div>
         </motion.div>
         </div>
@@ -554,14 +579,14 @@ export default function Page() {
                 {/* Rating Stars */}
                 <div className="flex gap-1">
                   {[...Array(testimonial.rating)].map((_, i) => (
-                    <svg key={i} className="h-4 w-4 text-[#f5e9d7]ccent" fill="currentColor" viewBox="0 0 20 20">
+                    <svg key={i} className="h-4 w-4 text-[#f5e9d7]" fill="currentColor" viewBox="0 0 20 20">
                       <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                     </svg>
                   ))}
                 </div>
 
                 {/* Quote */}
-                <p className="text-[#99a5a8]ase leading-relaxed text-foreground/90 italic">
+                <p className="text-[#99a5a8] leading-relaxed text-foreground/90 italic">
                   &ldquo;{testimonial.quote}&rdquo;
                 </p>
 
@@ -614,7 +639,7 @@ export default function Page() {
               <div className="h-4 w-px bg-muted/60"></div>
               <div className="flex items-center gap-1">
                 {[...Array(5)].map((_, i) => (
-                  <svg key={i} className="h-4 w-4 text-[#f5e9d7]ccent" fill="currentColor" viewBox="0 0 20 20">
+                  <svg key={i} className="h-4 w-4 text-[#f5e9d7]" fill="currentColor" viewBox="0 0 20 20">
                     <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                   </svg>
                 ))}
@@ -639,7 +664,7 @@ export default function Page() {
           className="relative text-center space-y-8"
         >
           <div className="space-y-6">
-            <h2 className="text-2xl font-bold leading-tight tracking-tight text-foreground md:text-[#f5e9d7]xl xl:text-4xl whitespace-nowrap">
+            <h2 className="text-3xl font-bold leading-tight tracking-tight text-foreground sm:text-4xl md:text-5xl">
               Ready to Transform Your Digital Presence?
             </h2>
             <p className="mx-auto max-w-2xl text-lg text-muted-foreground">
@@ -711,7 +736,3 @@ export default function Page() {
     </div>
   );
 }
-
-
-
-
