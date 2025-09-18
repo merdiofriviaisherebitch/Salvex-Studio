@@ -114,7 +114,7 @@ const arcTimelineData = [
         icon: <TrendingUp className="h-6 w-6" />,
         content: (
           <div className="space-y-2">
-            <div className="text-4xl font-bold text-[#f5e9d7]">300%</div>
+            <div className="text-4xl font-bold text-[#5e6a6d]">300%</div>
             <div className="text-sm font-semibold text-foreground">Avg. conversion boost</div>
             <div className="text-xs text-muted-foreground">Average increase in conversions across all client projects.</div>
           </div>
@@ -129,7 +129,7 @@ const arcTimelineData = [
         icon: <Zap className="h-6 w-6" />,
         content: (
           <div className="space-y-2">
-            <div className="text-4xl font-bold text-[#f5e9d7]">0.8s</div>
+            <div className="text-4xl font-bold text-[#5e6a6d]">0.8s</div>
             <div className="text-sm font-semibold text-foreground">Load time</div>
             <div className="text-xs text-muted-foreground">Average page load time across all delivered projects.</div>
           </div>
@@ -144,7 +144,7 @@ const arcTimelineData = [
         icon: <Users className="h-6 w-6" />,
         content: (
           <div className="space-y-2">
-            <div className="text-4xl font-bold text-[#f5e9d7]">50+</div>
+            <div className="text-4xl font-bold text-[#5e6a6d]">50+</div>
             <div className="text-sm font-semibold text-foreground">Happy clients</div>
             <div className="text-xs text-muted-foreground">Successful projects delivered across various industries.</div>
           </div>
@@ -579,7 +579,7 @@ export default function Page() {
                 {/* Rating Stars */}
                 <div className="flex gap-1">
                   {[...Array(testimonial.rating)].map((_, i) => (
-                    <svg key={i} className="h-4 w-4 text-[#f5e9d7]" fill="currentColor" viewBox="0 0 20 20">
+                    <svg key={i} className="h-4 w-4 text-[#5e6a6d]" fill="currentColor" viewBox="0 0 20 20">
                       <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                     </svg>
                   ))}
@@ -639,7 +639,7 @@ export default function Page() {
               <div className="h-4 w-px bg-muted/60"></div>
               <div className="flex items-center gap-1">
                 {[...Array(5)].map((_, i) => (
-                  <svg key={i} className="h-4 w-4 text-[#f5e9d7]" fill="currentColor" viewBox="0 0 20 20">
+                  <svg key={i} className="h-4 w-4 text-[#5e6a6d]" fill="currentColor" viewBox="0 0 20 20">
                     <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                   </svg>
                 ))}
@@ -682,15 +682,7 @@ export default function Page() {
                 Start Your Project
               </span>
             </Button>
-            <a
-              href="mailto:hi@salvex.app"
-              className="outline-pearl outline-pearl--email"
-            >
-              <div className="outline-pearl__inner">
-                <span className="outline-pearl__label">Prefer email?</span>
-                <span className="outline-pearl__value">hi@salvex.app</span>
-              </div>
-            </a>
+            <a href="mailto:hi@salvex.app" className="inline-flex items-center justify-center rounded-full border border-white/10 bg-white/10 px-6 py-3 text-sm font-semibold text-[#5e6a6d] shadow-[0_12px_30px_-18px_rgba(94,106,109,0.45)] transition-colors hover:bg-white/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/50 focus-visible:ring-offset-0">\n              hi@salvex.apppp\n            </a>
           </div>
 
           {/* Compact Metrics */}
@@ -736,3 +728,7 @@ export default function Page() {
     </div>
   );
 }
+
+
+
+
