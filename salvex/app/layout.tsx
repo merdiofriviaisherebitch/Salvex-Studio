@@ -1,4 +1,4 @@
-﻿import type { Metadata } from "next";
+import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
@@ -39,11 +39,6 @@ export default function RootLayout({
           {/* Neumorphic Rails */}
           <div className="absolute -left-4 top-0 bottom-0 w-[2px] pointer-events-none z-10 neumorphic-rail-left"></div>
           <div className="absolute -right-4 top-0 bottom-0 w-[2px] pointer-events-none z-10 neumorphic-rail-right"></div>
-
-          {/* Horizontal Neumorphic Rails - Connects first left to first right rail */}
-          <div className="absolute -left-4 -right-4 top-[5.27rem] h-[2px] pointer-events-none z-0 neumorphic-rail-horizontal"></div>
-          <div className="absolute -left-4 -right-4 top-[6rem] h-[2px] pointer-events-none z-0 neumorphic-rail-horizontal"></div>
-          <div className="absolute -left-4 -right-4 top-[6.73rem] h-[2px] pointer-events-none z-0 neumorphic-rail-horizontal"></div>
 
           {/* Left Neumorphic Lines */}
           <div className="absolute -left-8 top-0 bottom-0 w-[2px] pointer-events-none z-10 neumorphic-rail-left"></div>
@@ -106,5 +101,3 @@ export default function RootLayout({
     </html>
   );
 }
-
-
