@@ -129,8 +129,9 @@ export function SiteNavigation() {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
       className={cn(
-        "sticky z-50 flex justify-center transition-all duration-500 ease-out",
-        isMobile ? "top-4" : (isCondensed ? "top-2" : "top-4")
+        "z-50 flex justify-center transition-all duration-500 ease-out",
+        isMobile ? "static" : "sticky",
+        !isMobile && (isCondensed ? "top-2" : "top-4")
       )}
     >
       <div
