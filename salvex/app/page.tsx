@@ -278,7 +278,7 @@ export default function Page() {
                   <span className="outline-pearl__inner">View Our Work</span>
                 </Button>
               </div>
-              <div className="flex items-center justify-center gap-8 pt-6 text-sm text-muted-foreground">
+              <div className="hidden md:flex items-center justify-center gap-8 pt-6 text-sm text-muted-foreground">
                 <span className="inline-flex items-center gap-3 text-[#6f7f83]"><span className="breathing-dot inline-flex h-2 w-2 items-center justify-center rounded-full bg-accent/85" aria-hidden="true" />Free consultation</span>
                 <span className="inline-flex items-center gap-3 text-[#6f7f83]"><span className="breathing-dot inline-flex h-2 w-2 items-center justify-center rounded-full bg-accent/85" aria-hidden="true" />2-4 week delivery</span>
                 <span className="inline-flex items-center gap-3 text-[#6f7f83]"><span className="breathing-dot inline-flex h-2 w-2 items-center justify-center rounded-full bg-accent/85" aria-hidden="true" />300% avg conversion boost</span>
