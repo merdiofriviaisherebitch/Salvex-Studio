@@ -15,7 +15,7 @@ type InquiryPayload = {
   currentWebsite?: string;
   googleReviews?: string;
   location: string;
-  submittedAt?: string;
+  submittedAt: string;
 };
 
 const REQUIRED_FIELDS: Array<keyof InquiryPayload> = [
@@ -142,3 +142,4 @@ export async function GET(request: NextRequest) {
     );
   }
 }
+
