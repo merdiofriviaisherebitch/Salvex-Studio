@@ -8,7 +8,8 @@
       "Bash(npx convex deploy)",
       "Bash(npx convex deploy:*)",
       "Bash(git add:*)",
-      "Bash(git push:*)"
+      "Bash(git push:*)",
+      "Bash(pnpm lint:*)"
     ],
     "deny": [],
     "ask": []
