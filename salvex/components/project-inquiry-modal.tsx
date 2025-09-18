@@ -137,7 +137,7 @@ export function ProjectInquiryModal({ open, onOpenChange }: ProjectInquiryModalP
       })
 
       if (response.ok) {
-        window.open("https://cal.com/salvex/15min", "_blank")
+        window.open("https://calendly.com/mehrdad-salvex/30min", "_blank")
         onOpenChange(false)
         setFormData({
           name: "",
@@ -379,7 +379,7 @@ export function ProjectInquiryModal({ open, onOpenChange }: ProjectInquiryModalP
                     </Button>
 
                     <p className="text-center text-xs leading-relaxed text-[#5e6a6d]">
-                      We&apos;ll redirect you to Cal.com to pick a time that works for you. No spam&mdash;just a strategic roadmap for your next launch.
+                      We&apos;ll redirect you to Calendly to pick a time that works for you. No spam&mdash;just a strategic roadmap for your next launch.
                     </p>
                   </div>
                 </motion.form>

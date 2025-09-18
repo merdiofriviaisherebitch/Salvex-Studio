@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
 import { SiteNavigation } from "@/components/site-navigation";
+import { ConvexClientProvider } from "@/lib/convex-provider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -32,6 +33,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} min-h-screen bg-background text-foreground antialiased selection:bg-primary/30 selection:text-primary-foreground light`}
       >
+        <ConvexClientProvider>
         <div className="mx-auto flex min-h-screen max-w-6xl flex-col gap-12 px-6 pb-12 pt-16 md:px-10 relative">
           {/* Neumorphic Rails */}
           <div className="absolute -left-4 top-0 bottom-0 w-[2px] pointer-events-none z-10 neumorphic-rail-left"></div>
@@ -97,6 +99,7 @@ export default function RootLayout({
             {children}
           </main>
         </div>
+        </ConvexClientProvider>
       </body>
     </html>
   );
